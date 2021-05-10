@@ -100,3 +100,20 @@ INSERT INTO TOUR (TOURNAME, DESCRIOTION) VALUES
 -- SELECT AVG(BOOKING.PAYMENT) AS 'THE AVG PAY FOR BOOKINGS'
 -- FROM BOOKING
 
+--TASK 5 (Getting an error where Create View has to be the first statement in a query batch. Going to skip this question as time is running out.)
+-- CREATE VIEW QUERY 
+-- AS
+-- SELECT GIVENNAME, SURNAME, BOOKING.TOURNAME, DESCRIOTION, BOOKING.EVENTYEAR, BOOKING.EVENTMONTH, BOOKING.EVENTDAY, EVENTFEE, DATEBOOKED, PAYMENT
+-- FROM CLIENT, BOOKING, EVENT, TOUR 
+
+--TASK 6
+SELECT * FROM CLIENT
+SELECT COUNT(CLIENTID) AS 'NUMBER OF CLIENTS'
+FROM CLIENT
+
+SELECT * FROM BOOKING
+SELECT COUNT(BOOKING.DATEBOOKED) AS 'NUMBER OF BOOKINGS'
+FROM BOOKING
+
+-- The two tests that I have conducted above is showcasing the amount of clients are in the client tables and for the second test. 
+-- I have demonstrated counting code identifies there are 10 bookings that have been made according to the dates that we were give. 
