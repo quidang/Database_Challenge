@@ -42,7 +42,7 @@ CREATE TABLE EVENT(
 CREATE TABLE CLIENT(
     CLIENTID INT PRIMARY KEY, 
     SURNAME NVARCHAR(100) NOT NULL,
-    GIVNNAME NVARCHAR(100) NOT NULL,
+    GIVENNAME NVARCHAR(100) NOT NULL,
     GENDER NVARCHAR(1) check (GENDER in ('M', 'F', 'I')) 
 );
 
@@ -54,9 +54,39 @@ CREATE TABLE BOOKING(
     EVENTYEAR INT,
     PAYMENT MONEY,
     DATEBOOKED DATE,
-)
+);
 
-SELECT * FROM TOUR
-SELECT * FROM EVENT
+INSERT INTO CLIENT (CLIENTID, SURNAME, GIVENNAME, GENDER) VALUES 
+('1', 'Price', 'Taylor', 'M'),
+('2', 'Gamble', 'Ellyse', 'F'),
+('3', 'Tan', 'Tilly', 'F'),
+('4', 'Qui', 'Dang', 'M');
+
+INSERT INTO BOOKING (CLIENTID, TOURNAME, EVENTMONTH, EVENTDAY, EVENTYEAR, PAYMENT, DATEBOOKED) VALUES
+('1', 'North', 'Jan','9', '2016',	'200','2015-12-10'),
+('2', 'North', 'Jan','9','2016',	'200','2015-12-16'),
+('1', 'North', 'Feb','13','2016',	'225','2016-01-8'),
+('2', 'North', 'Feb','13','2016',	'125','2016-01-14'),
+('3', 'North', 'Feb','13','2016','225','2016-02-3'),
+('1', 'South', 'Jan','9', '2016',	'200','2015-12-10'),
+('2', 'South', 'Jan','16','2016',	'200','2015-12-18'),
+('3', 'South', 'Jan','16','2016',	'200','2016-01-9'),
+('2', 'West', 'Jan','29','2016',	'225','2015-12-17'),
+('3', 'West', 'Jan','29','2016',	'200','2015-12-18');
+
+
+INSERT INTO EVENT (TOURNAME, EVENTMONTH, EVENTDAY, EVENTYEAR, EVENTFEE) VALUES
+('North','Jan', '9', '2016','200'),
+('North','Feb', '13', '2016','225'),
+('South','Jan', '9', '2016','200'),
+('South', 'Jan', '16', '2016','200'),
+('West','Jan', '29', '2016', '225');
+
+INSERT INTO TOUR (TOURNAME, DESCRIOTION) VALUES
+('North', 'Tour of wineries and outlets of the Bendigo and Castemaine region'),
+('South', 'Tour of wineries and outlets of Mornington Peninsula'),
+('West', 'Tour of wineries and outlets of Geelong and Otways region');
+
 SELECT * FROM CLIENT
-SELECT * FROM BOOKING 
+
+
